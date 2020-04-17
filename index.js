@@ -29,3 +29,17 @@ function sumDigitNum(creditNumber){
         return false;
     }
 }
+function checkDiffDigits(creditNumber) {
+    let hasDiffDigits = false;
+    for (let i = 0; i < creditNumber.length; i++) {
+      if (!(creditNumber[i + 1] === creditNumber.length)) {
+       if (creditNumber[i] === creditNumber[i + 1]) {
+          hasDiffDigits = false;
+        } else {
+          hasDiffDigits = true;
+          break;
+        }
+       }
+    }
+    return hasDiffDigits;
+  }

@@ -4,3 +4,10 @@ function numberOfdigit16(creditNumber){
   } else 
   return false
 }
+function checkEvenNum(creditNumber){
+    if(creditNumber % 2 == 0){
+        return true;
+    }else{
+        return false;
+    }
+}

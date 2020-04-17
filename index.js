@@ -18,3 +18,14 @@ function CheckIfNumber(creditNumber){
         return true;
     }
 }
+function sumDigitNum(creditNumber){
+    let sum = 0;
+    for(i = 0; i < creditNumber.length; i++){
+        sum += Number.parseInt([i])
+    }
+    if(sum > 16){
+        return true;
+    } else {
+        return false;
+    }
+}

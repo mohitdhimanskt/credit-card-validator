@@ -11,3 +11,10 @@ function checkEvenNum(creditNumber){
         return false;
     }
 }
+function CheckIfNumber(creditNumber){
+    if(isNaN(creditNumber)){
+        return false;
+    }else{
+        return true;
+    }
+}

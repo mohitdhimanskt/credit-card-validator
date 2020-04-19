@@ -1,45 +1,31 @@
-function numberOfdigit16(creditNumber){
-  if(creditNumber.length === 16){
-      return true;
-  } else 
-  return false
-}
-function checkEvenNum(creditNumber){
-    if(creditNumber % 2 == 0){
-        return true;
-    }else{
+function validateCreditCard(creditCardNum){
+    if(creditCardNum.length !== 16){
+      return false;
+    }
+    for(var i = 0; i < creditCardNum.length; i++){
+      var currentNumber = creditCardNum[i];
+      currentNumber = Number.parseInt(currentNumber);
+      if(!Number.isInteger(currentNumber)){
         return false;
+      }
     }
-}
-function CheckIfNumber(creditNumber){
-    if(isNaN(creditNumber)){
-        return false;
-    }else{
-        return true;
+    var obj = {};
+    for(var i = 0; i < creditCardNum.length; i++){
+      obj[creditCardNum[i]] = true;
     }
-}
-function sumDigitNum(creditNumber){
-    let sum = 0;
-    for(i = 0; i < creditNumber.length; i++){
-        sum += Number.parseInt([i])
+    if(Object.keys(obj).length < 2){
+      return false;
     }
-    if(sum > 16){
-        return true;
-    } else {
-        return false;
+    if(creditCardNum[creditCardNum.length - 1] % 2 !== 0){
+      return false;
     }
-}
-function checkDiffDigits(creditNumber) {
-    let hasDiffDigits = false;
-    for (let i = 0; i < creditNumber.length; i++) {
-      if (!(creditNumber[i + 1] === creditNumber.length)) {
-       if (creditNumber[i] === creditNumber[i + 1]) {
-          hasDiffDigits = false;
-        } else {
-          hasDiffDigits = true;
-          break;
-        }
-       }
+    var sum = 0;
+    for(var i = 0; i < creditCardNum.length; i++){
+      sum += Number(creditCardNum[i]);
     }
-    return hasDiffDigits;
-  }
+    if(sum <= 16){
+      return false;
+    }
+  
+    return true;
+  };
